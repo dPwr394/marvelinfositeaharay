@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marvel's Portal of Knowledge - Homepage</title>
+    <link rel="stylesheet" href="/style/style.css">
+    <script src="/node_modules\js-md5\src\md5.js"></script>
+    <script src="/scripts/marvelapi.js"></script>
+</head>
+<body onload="createURL();rngComic();rngChar();" style="background-color: darkred;"><center>
+    <div style="background-color:rgb(32, 32, 32)">
+        <table style="border-spacing: 5px;">
+            <tr>
+                <td><img src="https://upload.wikimedia.org/wikipedia/commons/b/b9/Marvel_Logo.svg" width="150px" alt=""></td><th><h1>'s Portal of Knowledge | </h1></th>
+                <td><a href="/pages/index.html">Homepage</td>
+                <td><a href="/pages/about.html">About</td>
+            </tr>
+                </table> 
+    </div>
+    <div>Search: <input style="margin: 10px;" type="text" placeholder="something marvelous..."></div>
+    <table border="1">
+        <tr>
+            <td><button type="button" onclick="rngComic()"><b>Random Comic &#127922</b></button></td>
+            <td><button type="button" onclick="rngChar()"><b>Random Character &#127922</b></button></td>
+        </tr>
+        
+        <tr>
+            <th id="comic_title"></th>
+            <th id="char_name"></th>
+        </tr>
+        
+        <tr>
+            <td> <img src="" id="comic_poster" height="550px"><img></td>
+            <td> <img style="margin-top: 0px;" src="" id="char_photo" height="300px"><img></td>
+        </tr>
+    </table>
+    <div>
+        <p>I do not have any rights for any of MARVEL ips ©2024 MARVEL </p> for educational purposes only!</p>
+    </div>
+</center>
+</body>
+</html>

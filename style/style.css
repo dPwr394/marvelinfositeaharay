@@ -1,0 +1,17 @@
+button{
+    text-align: center;
+    font-size: large;
+}
+td{
+    align-self: center;
+    align-content: center;
+}
+table {
+    border-spacing: 15px;
+}
+a{
+    color: white;
+}
+th{
+    color:white;
+}
