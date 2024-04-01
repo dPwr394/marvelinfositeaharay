@@ -50,40 +50,6 @@ function randomUrlOffset(slash){
 //     console.error(error);
 //   })
 
-function rngComic() {
-  const url = createURL(`/comics`);
-  const comic_title = document.getElementById("comic_title");
-  const comic_poster = document.getElementById("comic_poster");
-  fetch(url)
-  .then(response => response.json())
-  .then(data => {
-    // Handle the API response here
-    //console.log(data.data.results[0]);
-    comic_title.innerHTML = data.data.results[0].title;
-    comic_poster.src = data.data.results[0].thumbnail.path+"."+data.data.results[0].thumbnail.extension;
-  })
-  .catch(error => {
-    // Handle any errors that occur during the API request
-    console.error(error);
-  })
-}
-
-function rngChar() {
-  const url = createURL(`/characters`);
-  const char_name = document.getElementById("char_name");
-  const char_photo = document.getElementById("char_photo");
-  fetch(url)
-  .then(response => response.json())
-  .then(data => {
-    // Handle the API response here
-    //console.log(data.data.results[0]);
-    char_name.innerHTML = data.data.results[0].name;
-    char_photo.src = data.data.results[0].thumbnail.path+"."+data.data.results[0].thumbnail.extension;
-  })
-  .catch(error => {
-    // Handle any errors that occur during the API request
-    console.error(error);
-  })
 }
 
 function infoChar(){
