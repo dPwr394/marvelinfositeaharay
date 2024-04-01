@@ -24,3 +24,7 @@ body{
     text-align: center;
     border-spacing: 5px;
 }
+hr{
+    margin-left: 350px;
+    margin-right: 350px;
+}
