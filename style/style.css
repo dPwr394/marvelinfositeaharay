@@ -18,6 +18,7 @@ a{
 }
 body{
     color:white;
+    font-family: Arial;
     background-color:rgb(32, 32, 32);
 }
 .toolbar{
