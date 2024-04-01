@@ -49,8 +49,6 @@ function randomUrlOffset(slash){
 //     // Handle any errors that occur during the API request
 //     console.error(error);
 //   })
-
-}
 function rngComic() {
   const url = createURL(`/comics`);
   const comic_title = document.getElementById("comic_title");
