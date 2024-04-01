@@ -51,7 +51,46 @@ function randomUrlOffset(slash){
 //   })
 
 }
+function rngComic() {
+  const url = createURL(`/comics`);
+  const comic_title = document.getElementById("comic_title");
+  const comic_poster = document.getElementById("comic_poster");
+  fetch(url)
+  .then(response => response.json())
+  .then(data => {
+    // Handle the API response here
+    //console.log(data.data.results[0]);
+    comic_title.innerHTML = data.data.results[0].title;
+    comic_poster.src = data.data.results[0].thumbnail.path+"."+data.data.results[0].thumbnail.extension;
+    currentComic = data.data.results[0].id;
+    document.getElementById("link_comic_info").setAttribute("href", `https://dpwr394.github.io/marvelinfositeaharay/pages/info_comic.html?id=`+currentComic);
+  })
+  .catch(error => {
+    // Handle any errors that occur during the API request
+    console.error(error);
+  })
+}
 
+function rngChar() {
+  const url = createURL(`/characters`);
+  const char_name = document.getElementById("char_name");
+  const char_photo = document.getElementById("char_photo");
+  fetch(url)
+  .then(response => response.json())
+  .then(data => {
+    // Handle the API response here
+    //console.log(data.data.results[0]);
+    char_name.innerHTML = data.data.results[0].name;
+    char_photo.src = data.data.results[0].thumbnail.path+"."+data.data.results[0].thumbnail.extension;
+    console.log(data.data.results[0].id);
+    currentChar = data.data.results[0].id;
+    document.getElementById("link_char_info").setAttribute("href", `https://dpwr394.github.io/marvelinfositeaharay/pages/info_char.html?id=`+currentChar);
+  })
+  .catch(error => {
+    // Handle any errors that occur during the API request
+    console.error(error);
+  })
+}
 function infoChar(){
   //console.log("/pages/info_char.html?id="+currentChar);
   const idParam = new URLSearchParams(window.location.search);
