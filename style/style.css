@@ -1,3 +1,12 @@
+.info{
+    text-align: left;
+    vertical-align: top;
+}
+#char_desc{
+    font-size: larger;
+    text-align: left;
+    vertical-align: top;
+}
 button{
     text-align: center;
     font-size: large;
@@ -6,9 +15,8 @@ button{
     background-color: rgba(82, 82, 82, 0.274);
 }
 td{
-    align-self: center;
-    align-content: center;
     text-align: center;
+    vertical-align:top;
 }
 table {
     border-spacing: 15px;
@@ -24,8 +32,11 @@ body{
 .toolbar{
     text-align: center;
     border-spacing: 5px;
+    vertical-align:middle;
 }
 hr{
     margin-left: 350px;
     margin-right: 350px;
 }
+
+
