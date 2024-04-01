@@ -1,10 +1,13 @@
 
 const publicKey = 'f5d1f1ec4c6252ff9f5b054433d42ffa';
 const privateKey = 'fdea44270f31ee1eefbc07764be728e08cd3b613';
-const apiBaseURL = "https://gateway.marvel.com//v1/public";
-//I FUCKING HATE GUTHUB'S DEPLOY SYSTEM
+const apiBaseURL = "http://gateway.marvel.com//v1/public";
+
 // Creates a URL for searching Marvel API for comics with titles starting with a given search term
 function createURL(slash) {
+
+  if(slash==null){slash=`/`;}
+
   // Get the current timestamp
   const ts = Date.now();
 
@@ -15,16 +18,26 @@ function createURL(slash) {
     hash: md5(ts + privateKey + publicKey), // Generate hash for authentication
   });
   // Construct the endpoint URL for searching comics with the query parameters
-  const offset = `offset=${Math.round(Math.random() * 1563)}&`;
-  const endpoint = `${apiBaseURL}`+slash+`?limit=1&` + offset; // Notice the question mark to start the query parameters.
-
+  //const offset = `offset=${Math.round(Math.random() * 1563)}&`; //(obsolete)
+  const endpoint = `${apiBaseURL}`+slash+`?limit=1&` + randomUrlOffset(slash) // Notice the question mark to start the query parameters.
   // Combine the endpoint URL with the query parameters to form the complete API request URL
   const url = endpoint + params;
 
 // Return the complete API request URL
   return url;
+  
 }
 const url = createURL();
+
+function randomUrlOffset(slash){
+  let max = 1500;
+  if(slash == `/comics`){max = 59727 }
+  else if(slash == `/characters`){max = 1563}
+
+  const offset = `offset=${Math.round(Math.random() * max)}&`;
+
+  return offset;
+}
 
 // fetch(url)
 //   .then(response => response.json())
@@ -45,7 +58,7 @@ function rngComic() {
   .then(response => response.json())
   .then(data => {
     // Handle the API response here
-    console.log(data.data.results[0]);
+    //console.log(data.data.results[0]);
     comic_title.innerHTML = data.data.results[0].title;
     comic_poster.src = data.data.results[0].thumbnail.path+"."+data.data.results[0].thumbnail.extension;
   })
@@ -63,7 +76,7 @@ function rngChar() {
   .then(response => response.json())
   .then(data => {
     // Handle the API response here
-    console.log(data.data.results[0]);
+    //console.log(data.data.results[0]);
     char_name.innerHTML = data.data.results[0].name;
     char_photo.src = data.data.results[0].thumbnail.path+"."+data.data.results[0].thumbnail.extension;
   })
