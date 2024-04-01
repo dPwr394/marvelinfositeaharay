@@ -5,16 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Marvel's Portal of Knowledge</title>
 </head>
-<body><center>
+<body onload="infoComic();"><center>
     <div>
-        <table>
+        <table style="border-spacing: 5px;">
             <tr>
-                <td><img src="https://upload.wikimedia.org/wikipedia/commons/b/b9/Marvel_Logo.svg" width="150px" alt=""></td><th><h1>'s Portal of Knowledge | </h1></th>
-                <td><a href="/index.html">Homepage</td>
-                <td><a href="/pages/about.html">About</td>
+                <td style="vertical-align:middle"><img src="https://upload.wikimedia.org/wikipedia/commons/b/b9/Marvel_Logo.svg" width="150px" alt=""></td><th><h1>'s Portal of Knowledge | </h1></th>
+                <td style="vertical-align:middle"><a href="https://dpwr394.github.io/marvelinfositeaharay/pages/about.html"">Homepage</td>
+                <td style="vertical-align:middle"><a href="https://dpwr394.github.io/marvelinfositeaharay/pages/about.html">About</td>
+                <td style="vertical-align:middle"> Search:<input style="margin: 5px;" type="text" placeholder="something marvelous..."></td>
             </tr>
-                </table> 
-    </div>
+        </table> 
+    </div><hr>
+    <h1 id="comic_title"></h1>
+    <table border="1" class="info" style="text-align: left; vertical-align:top; width: 1200px;">
+        <tr>
+            <th style="height:10px">Description</th>
+            <td rowspan="2"><img src="" id="comic_poster" height="550px"><img></td>
+        </tr>
+        <tr><td style="vertical-align:top; text-align: left;"><p id="comic_desc"></p></td></tr>
+    </table>
 </center>
 </body>
 </html>
