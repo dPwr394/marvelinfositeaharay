@@ -8,16 +8,24 @@
     <script src="/node_modules\js-md5\src\md5.js"></script>
     <script src="/scripts/marvelapi.js"></script>
 </head>
-<body><center>
+<body onload="infoChar();"><center>
     <div>
-        <table>
-            <tr>
-                <td><img src="https://upload.wikimedia.org/wikipedia/commons/b/b9/Marvel_Logo.svg" width="150px" alt=""></td><th><h1>'s Portal of Knowledge | </h1></th>
-                <td><a href="/pages/index.html">Homepage</td>
-                <td><a href="/pages/about.html">About</td>
+        <table style="border-spacing: 5px;">
+            <tr> <!--idk why but it only works when "style"ing each one--> 
+                <td style="vertical-align:middle"><img src="https://upload.wikimedia.org/wikipedia/commons/b/b9/Marvel_Logo.svg" width="150px" alt=""></td><th><h1>'s Portal of Knowledge | </h1></th>
+                <td style="vertical-align:middle"><a href="https://dpwr394.github.io/marvelinfositeaharay/pages/about.html"">Homepage</a></td>
+                <td style="vertical-align:middle"><a href="https://dpwr394.github.io/marvelinfositeaharay/pages/about.html">About</a></td>
+                <td style="vertical-align:middle"> Search:<input style="margin: 5px;" type="text" placeholder="something marvelous..."></td>
             </tr>
-                </table> 
-    </div>
-</center>
+        </table> 
+    </div><hr>
+    <h1 id="char_name"></h1>
+    <table border="1" class="info" style="text-align: left; vertical-align:top; width: 1200px;">
+        <tr>
+            <th style="height:10px">Description</th>
+            <td rowspan="2"><img src="" id="char_photo" height="550px"><img></td>
+        </tr>
+        <tr><td style="vertical-align:top"><p id="char_desc"></p></td></tr>
+    </table>
 </body>
 </html>
