@@ -85,3 +85,123 @@ function rngChar() {
     console.error(error);
   })
 }
+
+function infoChar(){
+  //console.log("/pages/info_char.html?id="+currentChar);
+  const idParam = new URLSearchParams(window.location.search);
+  console.log(idParam.has('id')); 
+  console.log(idParam.get('id'));
+  // Get the current timestamp
+  const ts = Date.now();
+
+  // Create a new URLSearchParams object and set the necessary query parameters
+  const params = new URLSearchParams({
+    ts: ts,
+    apikey: publicKey,
+    hash: md5(ts + privateKey + publicKey), // Generate hash for authentication
+  });
+  // Construct the endpoint URL for searching comics with the query parameters
+  //const offset = `offset=${Math.round(Math.random() * 1563)}&`; //(obsolete)
+  const endpoint = `${apiBaseURL}`+`/characters/`+idParam.get('id')+`?`; // Notice the question mark to start the query parameters.
+  // Combine the endpoint URL with the query parameters to form the complete API request URL
+  const url = endpoint + params;
+  
+  fetch(url)
+  .then(response => response.json())
+  .then(data => {
+    const char_name = document.getElementById("char_name");   
+    const char_photo = document.getElementById("char_photo");
+    const description = document.getElementById("char_desc");
+    char_name.innerHTML = data.data.results[0].name;
+    char_photo.src = data.data.results[0].thumbnail.path+"."+data.data.results[0].thumbnail.extension;
+    if( data.data.results[0].description!=""){
+      description.innerHTML = data.data.results[0].description;
+    }
+    else{
+      description.innerHTML = "Sorry... No information available."
+    }
+  })
+  .catch(error => {
+    // Handle any errors that occur during the API request
+    console.error(error);
+  })
+
+
+  //document.getElementById("link_char_info").href="https://dpwr394.github.io/marvelinfositeaharay/pages/info_char.html"+"?id="+currentChar;
+}
+
+function infoComic(){
+  //console.log("/pages/info_char.html?id="+currentChar);
+  const idParam = new URLSearchParams(window.location.search);
+  console.log(idParam.has('id')); 
+  console.log(idParam.get('id'));
+  // Get the current timestamp
+  const ts = Date.now();
+
+  // Create a new URLSearchParams object and set the necessary query parameters
+  const params = new URLSearchParams({
+    ts: ts,
+    apikey: publicKey,
+    hash: md5(ts + privateKey + publicKey), // Generate hash for authentication
+  });
+  // Construct the endpoint URL for searching comics with the query parameters
+  //const offset = `offset=${Math.round(Math.random() * 1563)}&`; //(obsolete)
+  const endpoint = `${apiBaseURL}`+`/comics/`+idParam.get('id')+`?`; // Notice the question mark to start the query parameters.
+  // Combine the endpoint URL with the query parameters to form the complete API request URL
+  const url = endpoint + params;
+  
+  fetch(url)
+  .then(response => response.json())
+  .then(data => {
+    const comic_title = document.getElementById("comic_title");
+    const description = document.getElementById("comic_desc");
+    const comic_poster = document.getElementById("comic_poster");
+    comic_title.innerHTML = data.data.results[0].title;
+    comic_poster.src = data.data.results[0].thumbnail.path+"."+data.data.results[0].thumbnail.extension;
+    if( data.data.results[0].description!=null){
+      description.innerHTML = data.data.results[0].description;
+    }
+    else{
+      description.innerHTML = "Sorry... No information available."
+    }
+  })
+  .catch(error => {
+    // Handle any errors that occur during the API request
+    console.error(error);
+  })
+
+
+  //document.getElementById("link_char_info").href="https://dpwr394.github.io/marvelinfositeaharay/pages/info_char.html"+"?id="+currentChar;
+}
+
+function search(){
+  var input = document.getElementById("searchbar").value;
+
+  // Get the current timestamp
+  const ts = Date.now();
+
+  // Create a new URLSearchParams object and set the necessary query parameters
+  const params = new URLSearchParams({
+    ts: ts,
+    apikey: publicKey,
+    hash: md5(ts + privateKey + publicKey), // Generate hash for authentication
+  });
+  // Construct the endpoint URL for searching comics with the query parameters
+  //const offset = `offset=${Math.round(Math.random() * 1563)}&`; //(obsolete)
+  const endpoint = `${apiBaseURL}`+`/characters?nameStartsWith=`+input; // Notice the question mark to start the query parameters.
+  // Combine the endpoint URL with the query parameters to form the complete API request URL
+  const url = endpoint + params;
+
+  fetch(url)
+  .then(response => response.json())
+  .then(data => {
+    console.log(url);
+    console.log(data.data);
+    console.log(data.data.results[0].description)
+  })
+  .catch(error => {
+    // Handle any errors that occur during the API request
+    console.error(error);
+  })
+
+}
