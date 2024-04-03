@@ -161,7 +161,7 @@ function infoComic(){
     const comic_poster = document.getElementById("comic_poster");
     comic_title.innerHTML = data.data.results[0].title;
     comic_poster.src = data.data.results[0].thumbnail.path+"."+data.data.results[0].thumbnail.extension;
-    if( data.data.results[0].description!=null || data.data.results[0].description!=""){
+    if(data.data.results[0].description!=""){
       description.innerHTML = data.data.results[0].description;
     }
     else{
